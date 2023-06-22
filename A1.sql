@@ -53,7 +53,7 @@ CREATE TABLE tbDetailFaktur (
 GO
 
 CREATE TABLE tbTransaksiBarang (
-	idTransaksi CHAR(3) PRIMARY KEY,
+	idTransaksi INT PRIMARY KEY IDENTITY(1, 1),
 	noFaktur CHAR(6) REFERENCES tbDetailFaktur(noFaktur) NOT NULL,
 	kodeBarang CHAR(5) REFERENCES tbBarang(kode),
 	banyakBarang INT,
@@ -70,7 +70,7 @@ CREATE TABLE tbDetailRetur (
 GO
 
 CREATE TABLE tbBarangRetur (
-	idRetur CHAR(3) PRIMARY KEY,
+	idRetur INT PRIMARY KEY IDENTITY(1, 1),
 	noRetur CHAR(6) REFERENCES tbDetailRetur(noRetur)  NOT NULL,
 	kodeBarang CHAR(5) REFERENCES tbBarang(kode) NOT NULL,
 	banyakBarang INT NOT NULL,
