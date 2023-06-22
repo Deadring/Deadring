@@ -1,6 +1,6 @@
+from datetime import datetime
 import json
 from pathlib import Path
-import datetime
 
 from openpyxl import load_workbook
 
@@ -18,7 +18,7 @@ def get_data(excel_file=None):
         data[sheet] = {}
 
         for i, cell in enumerate(record[1:]):
-            data[sheet][i] = {header: x.strftime('%Y-%m-%d') if isinstance((x:=cell[j]), datetime.datetime) else x for j, header in enumerate(head)}
+            data[sheet][i] = {header: x.strftime('%Y-%m-%d') if isinstance((x:=cell[j]), datetime) else x for j, header in enumerate(head)}
 
     return data
 

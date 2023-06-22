@@ -1,7 +1,6 @@
 import json
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 PATH = Path(__file__).parent
 
