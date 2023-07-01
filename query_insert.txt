@@ -58,7 +58,14 @@ INSERT INTO tbPelanggan VALUES('P0001', 'Adrian Chen', '08125234777', 'Jln.Rajaw
                               ('P0058', 'Diva Putri Kynta', '081962578642', 'Jln. sini sono', 'malang'),
                               ('P0059', 'Fadhil Saadat', '081467862313', 'Jln. Jalan', 'Garut'),
                               ('P0060', 'Fandy', '081265426735', 'Jln. Bahagia wkwk', 'Bekasi'),
-                              ('P0061', 'Kumalala ', '08128313312', 'Jln. Masih dipikirkan', 'Padang')
+                              ('P0061', 'Kumalala ', '08128313312', 'Jln. Masih dipikirkan', 'Padang'),
+                              ('P0062', 'Mr Waduh', '082173483421', 'Jln. Itu Saja', 'Bali'),
+                              ('P0063', 'Seniman Austria', '08120317434', 'Jln. Mbah Kumis', 'Garut'),
+                              ('P0064', 'Muammar Qaddafi', '081264387343', 'Jln. Emas', 'Medan'),
+                              ('P0065', 'Jos Biden', '08213425512', 'Jln. Aku Lupa', 'Manado'),
+                              ('P0066', 'Barat Omaba', '081273413454', 'Jln. Drone ', 'Jakarta'),
+                              ('P0067', 'Farhan Kebab', '081273413455', 'Jln. Streetfood', 'Bogor'),
+                              ('P0068', 'Kang Mus', '081273413456', 'Jln. Terminal', 'Bandung')
 
 INSERT INTO tbSalesman VALUES('S0001', 'Adrian Chen', '081234567890', 'Jln. Maju tak gentar', 'Palembang', 'L'),
                              ('S0002', 'Andre Kurniawan', '0872123980112', 'Jln. Apa Saja no 75', 'Durian', 'L'),
@@ -68,7 +75,8 @@ INSERT INTO tbSalesman VALUES('S0001', 'Adrian Chen', '081234567890', 'Jln. Maju
 INSERT INTO tbKasir VALUES('K0001', 'Steven Tribethran', '085728996767', 'Jln. Perunas no 80', 'Jakarta', 'L'),
                           ('K0002', 'Rio Ferdynand', '08132789288', 'Gang Rukun', 'Bandung', 'L'),
                           ('K0003', 'Neilsen Nicholas Komah', '08281302182', 'Perumahan Bahagia No 23', 'Binjai', 'L'),
-                          ('K0004', 'Rusdi', '08123441241', 'Jln. Planet Lain', 'Depok', 'L')
+                          ('K0004', 'Rusdi', '08123441241', 'Jln. Planet Lain', 'Depok', 'L'),
+                          ('K0005', 'Enma BLM', '091283391124', 'Jln. Heheha', 'Ngawi', 'P')
 
 INSERT INTO tbBarang VALUES('B0001', 'Semen', 'Sak', '50000', '1332'),
                            ('B0002', 'Semen Putih', 'Sak', '90000', '6032'),
@@ -115,7 +123,11 @@ INSERT INTO tbBarang VALUES('B0001', 'Semen', 'Sak', '50000', '1332'),
                            ('B0043', 'Sekop', 'Pcs', '10000', '4059'),
                            ('B0044', 'Cetok', 'Pcs', '14000', '3560'),
                            ('B0045', 'Kuas Cat', 'Pcs', '7000', '8637'),
-                           ('B0046', 'Linggis', 'Pcs', '68000', '7716')
+                           ('B0046', 'Linggis', 'Pcs', '68000', '7716'),
+                           ('B0047', 'Oli', 'Liter', '45000', '420'),
+                           ('B0048', 'Lem Kertas', 'Pcs', '5000', '1000'),
+                           ('B0049', 'Cat Mahal VIP', 'Liter', '1000000', '2'),
+                           ('B0050', 'Logitech Controller', 'Pcs', '250000', '5000')
 
 INSERT INTO tbDetailFaktur VALUES('FK0001', '2020-07-10', 'P0001', 'K0002', 'S0001', '1235000', '5'),
                                  ('FK0002', '2020-07-10', 'P0002', 'K0002', 'S0002', '6683250', '5'),
