@@ -1105,6 +1105,330 @@ GO
 
 
 
+-- Procedure
+CREATE PROCEDURE pr_data_barang(@kode CHAR(5), @Nama VARCHAR(40), @satuan INT, @harga MONEY, @stok INT, @Petunjuk CHAR(1))
+AS 
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' dengan kode barang : ' + @kode + ', Nama Barang: ' + @nama + ' dan Sebanyak Satuan ' + @satuan + '  Dengan harga ' + @harga + 'dengan jumlah stok ' + @stok
+
+			INSERT INTO tbBarang(kode, nama, satuan, harga, stok) VALUES(@kode, @Nama, @satuan, @harga, @stok)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Data barang dengan : ' + @kode + ' telah dihapus dari tabel'
+
+			UPDATE tbBarang
+			SET kode = @kode,
+					Nama = @Nama,
+					harga = @harga,
+					stok = @stok
+			WHERE stok = @stok
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan data barang dengan kode: ' + @Kode 
+
+			DELETE FROM tbBarang
+			WHERE kode = @kode
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbBarang
+			WHERE kode = @kode
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_data_pelanggan(@kodePelanggan CHAR(5), @namaPelanggan VARCHAR(40), @noTelpPelanggan CHAR(15), @alamatPelanggan VARCHAR(40), @kotaPelanggan VARCHAR(20), @Petunjuk CHAR(1))
+AS 
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' dengan kode pelanggan : ' + @kodePelanggan   
+
+			INSERT INTO tbPelanggan(kode, nama, noTelp, alamat, kota) VALUES(@kodePelanggan, @namaPelanggan, @noTelpPelanggan, @alamatPelanggan, @kotaPelanggan)		
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Data pelanggan dengan : ' + @kodePelanggan	  
+
+			UPDATE tbPelanggan
+			SET kode = @kodePelanggan,
+					Nama = @namaPelanggan,
+					noTelp = @noTelpPelanggan,
+					alamat = @alamatPelanggan,
+					kota = @kotaPelanggan
+			WHERE kode = @kodePelanggan
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan data pelanggan dengan kode: ' + @kodePelanggan		
+
+			DELETE FROM tbPelanggan
+			WHERE kode = @kodePelanggan
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbPelanggan
+			WHERE kode = @kodePelanggan
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_salesman(@kode CHAR(5), @Nama VARCHAR(40), @noTelp CHAR(15), @alamat VARCHAR(40), @kota VARCHAR(20), @JK CHAR(1), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' +  ', kode Salesman: ' + @kode
+
+			INSERT INTO tbSalesman(kode, nama, noTelp, alamat, kota,JK) VALUES(@kode,@Nama, @noTelp, @alamat, @kota, @JK)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Data dengan kode salesman : ' + @kode + ' telah dihapus dari tabel'
+
+			UPDATE tbSalesman
+			SET kode = @kode,
+					Nama = @Nama,
+					noTelp = @noTelp,
+					alamat = @alamat,
+					kota = @kota,
+					JK = @JK
+			WHERE kode = @kode
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan data dengan kode salesman: ' + @Kode
+
+			DELETE FROM tbSalesman
+			WHERE kode = @kode
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbSalesman
+			WHERE kode = @kode
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_kasir(@kode CHAR(5), @Nama VARCHAR(40), @noTelp CHAR(15), @alamat VARCHAR(40), @kota VARCHAR(20), @JK CHAR(1), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ', Kode Kasir: ' + @kode
+
+			INSERT INTO tbKasir(kode, nama, noTelp, alamat, kota,JK) VALUES(@kode, @Nama, @noTelp, @alamat, @kota, @JK)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Data dengan kode kasir : ' + @kode + ' telah dihapus dari tabel'
+
+			UPDATE tbKasir
+			SET kode = @kode,
+					Nama = @Nama,
+					noTelp = @noTelp,
+					alamat = @alamat,
+					kota = @kota,
+					JK = @JK
+			WHERE kode = @kode
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan data dengan kode kasir: ' + @Kode
+
+			DELETE FROM tbKasir
+			WHERE kode = @kode
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbKasir
+			WHERE kode = @kode
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_detail_faktur(@noFaktur CHAR(6), @tanggal DATE, @kodePelanggan CHAR(5) , @kodeKasir CHAR(5), @kodeSalesman CHAR(5), @persenDiskon CHAR(3), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' dengan nomor faktur: ' + @noFaktur
+
+			INSERT INTO tbDetailFaktur(noFaktur, tanggal, kodePelanggan, kodeKasir, kodeSalesman, persenDiskon) VALUES(@noFaktur, @tanggal, @kodePelanggan, @kodeKasir, @kodeSalesman,@persenDiskon)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Data barang dengan kode faktur : ' + @noFaktur + ' telah diupdate dari tabel'
+
+			UPDATE tbDetailFaktur
+			SET noFaktur = @noFaktur,
+					tanggal = @tanggal
+			WHERE noFaktur = @noFaktur
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan data barang dengan kode faktur: ' + @noFaktur
+
+			DELETE FROM tbDetailFaktur
+			WHERE noFaktur = @noFaktur
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbDetailFaktur
+			WHERE noFaktur = @noFaktur
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_transaksi_barang(@id CHAR(2), @noFaktur CHAR(6), @kodeBarang CHAR(5) , @banyakBarang CHAR(4), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' transaksi dengan id transaksi: ' + @id
+
+			INSERT INTO tbTransaksiBarang(idTransaksi, noFaktur, kodeBarang, banyakBarang) VALUES(@id, @noFaktur,@kodeBarang, @banyakBarang)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Transaksi dengan id transaksi : ' + @id + ' telah dihapus dari tabel'
+
+			UPDATE tbTransaksiBarang
+			SET noFaktur = @noFaktur,
+				kodeBarang = @kodeBarang,
+				banyakBarang = @banyakBarang
+			WHERE idTransaksi = @id
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan Transaksi barang : ' + @id
+
+			DELETE FROM tbTransaksiBarang
+			WHERE idTransaksi = @id
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbTransaksiBarang
+			WHERE idTransaksi = @id
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_detail_retur(@noRetur CHAR(6), @tanggal DATE, @noFaktur CHAR(6), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' transaksi dengan no retur: ' + @noRetur
+
+			INSERT INTO tbDetailRetur(noRetur, tanggalRetur, noFaktur) VALUES(@noRetur, @tanggal, @noFaktur)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Transaksi dengan no retur : ' + @noRetur + ' telah dihapus dari tabel'
+
+			UPDATE tbDetailRetur
+			SET noRetur = @noRetur,
+				tanggalRetur = @tanggal,
+				noFaktur = @noFaktur
+			WHERE noRetur = @noRetur
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan Nomor Retur: ' + @noRetur
+
+			DELETE FROM tbDetailRetur
+			WHERE noRetur = @noRetur
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbDetailRetur
+			WHERE noRetur = @noRetur
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+CREATE PROCEDURE pr_barang_retur(@id CHAR(3),@noRetur CHAR(6), @kodeBarang CHAR(6), @banyakBarang CHAR(3), @alasanRetur VARCHAR(20), @kondisiBarang CHAR(1), @Petunjuk CHAR(1))
+AS
+	IF @Petunjuk = 'I'
+		BEGIN
+			PRINT '(Insert data):' + ' transaksi dengan id Barang Retur: ' + @id
+
+			INSERT INTO tbBarangRetur(idRetur, noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@id, @noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
+		END
+	ELSE IF @Petunjuk = 'U'
+		BEGIN
+			PRINT '(Update data):' + ' Barang Retur dengan id: ' + @id + ' telah dihapus dari tabel'
+
+			UPDATE tbBarangRetur
+			SET noRetur = @noRetur,
+				kodeBarang = @kodeBarang,
+				banyakBarang = @banyakBarang,
+				alasanRetur = @alasanRetur,
+				kondisiBarang = @kondisiBarang
+			WHERE noRetur = @noRetur
+		END
+	ELSE IF @Petunjuk = 'D'
+		BEGIN
+			PRINT '(Delete data):' + ' Penghapusan Barang Retur: ' + @id
+			DELETE FROM tbBarangRetur
+			WHERE idRetur = @id
+		END
+	ELSE IF @Petunjuk = 'S'
+		BEGIN
+			PRINT '(Select data)'
+
+			SELECT * FROM tbBarangRetur
+			WHERE idRetur = @id
+		END
+	ELSE
+		BEGIN
+			PRINT 'Perintah tidak valid'
+		END
+GO
+
+
+
+
 
 -- View
 -- View untuk melihat transaksi barang tiap faktur
@@ -1135,13 +1459,13 @@ GO
 SELECT * FROM vwTransaksiWithTotal
 
 
--- View untuk melihat pembelian yang totalnya diatas 1 juta
+-- View untuk melihat pembelian yang totalnya diatas 100 juta
 CREATE VIEW vwPembelianBesar
 AS
 	SELECT vT.noFaktur, SUM(vT.subtotal) AS total
 	FROM vwTransaksi AS vT
 	GROUP BY vT.noFaktur
-	HAVING SUM(vT.subtotal) >= 1000000
+	HAVING SUM(vT.subtotal) >= 100000000
 GO
 
 SELECT * FROM vwPembelianBesar
