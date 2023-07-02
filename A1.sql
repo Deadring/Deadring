@@ -173,7 +173,6 @@ INSERT INTO tbKasir VALUES('K0001', 'Steven Tribethran', '085728996767', 'Jln. P
                           ('K0003', 'Neilsen Nicholas Komah', '08281302182', 'Perumahan Bahagia No 23', 'Binjai', 'L'),
                           ('K0004', 'Rusdi', '08123441241', 'Jln. Planet Lain', 'Depok', 'L'),
                           ('K0005', 'Enma BLM', '091283391124', 'Jln. Heheha', 'Ngawi', 'P')
-GO
 
 INSERT INTO tbBarang VALUES('B0001', 'Semen', 'Sak', '50000', '1332'),
                            ('B0002', 'Semen Putih', 'Sak', '90000', '6032'),
@@ -1023,7 +1022,6 @@ GO
 
 
 
-
 -- Query Select, Update & Delete
 SELECT * FROM TbPelanggan WHERE kota = 'Jakarta'
 SELECT * FROM TbPelanggan WHERE nama LIKE 'E%'
@@ -1427,6 +1425,108 @@ AS
 GO
 
 
+EXEC pr_detail_faktur 'FK0164', '2023-07-02','P0001','K0001','S0001', '5','I'
+EXEC pr_transaksi_barang 'FK0164', 'B0001', '3', 'I'
+EXEC pr_transaksi_barang 'FK0164', 'B0002', '2', 'I'
+EXEC pr_transaksi_barang 'FK0164', 'B0003', '3', 'I'
+EXEC pr_transaksi_barang 'FK0164', 'B0004', '4', 'I'
+EXEC pr_transaksi_barang 'FK0164', 'B0005', '6', 'I'
+
+EXEC pr_detail_faktur 'FK0165', '2023-07-02','P0002','K0003','S0004', '5','I'
+EXEC pr_transaksi_barang 'FK0165', 'B0006', '2', 'I'
+EXEC pr_transaksi_barang 'FK0165', 'B0009', '2', 'I'
+EXEC pr_transaksi_barang 'FK0165', 'B0008', '9', 'I'
+EXEC pr_transaksi_barang 'FK0165', 'B0011', '3', 'I'
+EXEC pr_transaksi_barang 'FK0165', 'B0013', '6', 'I'
+
+EXEC pr_detail_faktur 'FK0166', '2023-07-02','P0003','K0002','S0003', '5','I'
+EXEC pr_transaksi_barang 'FK0166', 'B0014', '2', 'I'
+EXEC pr_transaksi_barang 'FK0166', 'B0013', '11', 'I'
+EXEC pr_transaksi_barang 'FK0166', 'B0015', '9', 'I'
+EXEC pr_transaksi_barang 'FK0166', 'B0016', '3', 'I'
+EXEC pr_transaksi_barang 'FK0166', 'B0017', '6', 'I'
+
+EXEC pr_detail_faktur 'FK0167', '2023-07-02','P0004','K0001','S0002', '5','I'
+EXEC pr_transaksi_barang 'FK0167', 'B0018', '2', 'I'
+EXEC pr_transaksi_barang 'FK0167', 'B0019', '11', 'I'
+EXEC pr_transaksi_barang 'FK0167', 'B0020', '9', 'I'
+EXEC pr_transaksi_barang 'FK0167', 'B0021', '15', 'I'
+EXEC pr_transaksi_barang 'FK0167', 'B0022', '6', 'I'
+
+EXEC pr_detail_faktur 'FK0168', '2023-07-02','P0005','K0003','S0003', '5','I'
+EXEC pr_transaksi_barang 'FK0168', 'B0023', '3', 'I'
+EXEC pr_transaksi_barang 'FK0168', 'B0024', '2', 'I'
+EXEC pr_transaksi_barang 'FK0168', 'B0025', '3', 'I'
+EXEC pr_transaksi_barang 'FK0168', 'B0026', '5', 'I'
+EXEC pr_transaksi_barang 'FK0168', 'B0027', '2', 'I'
+
+EXEC pr_detail_faktur 'FK0169', '2023-07-02','P0006','K0003','S0002', '5','I'
+EXEC pr_transaksi_barang 'FK0169', 'B0028', '13', 'I'
+EXEC pr_transaksi_barang 'FK0169', 'B0029', '4', 'I'
+EXEC pr_transaksi_barang 'FK0169', 'B0030', '5', 'I'
+EXEC pr_transaksi_barang 'FK0169', 'B0031', '7', 'I'
+EXEC pr_transaksi_barang 'FK0169', 'B0032', '2', 'I'
+
+EXEC pr_detail_faktur 'FK0170', '2023-07-02','P0007','K0002','S0001', '5','I'
+EXEC pr_transaksi_barang 'FK0170', 'B0033', '11', 'I'
+EXEC pr_transaksi_barang 'FK0170', 'B0034', '4', 'I'
+EXEC pr_transaksi_barang 'FK0170', 'B0035', '5', 'I'
+EXEC pr_transaksi_barang 'FK0170', 'B0036', '7', 'I'
+EXEC pr_transaksi_barang 'FK0170', 'B0037', '2', 'I'
+
+
+--retur
+EXEC pr_detail_retur 'RT0018', '2023-07-02','FK0164','I'
+EXEC pr_barang_retur 'RT0018', 'B0001', '1', 'rusak' ,'0','I'
+EXEC pr_barang_retur 'RT0018', 'B0002', '2', 'rusak' ,'0','I'
+
+EXEC pr_detail_retur 'RT0019', '2023-07-02','FK0165','I'
+EXEC pr_barang_retur 'RT0019', 'B0006', '1', 'salah barang', '1','I'
+EXEC pr_barang_retur 'RT0019', 'B0009', '1', 'expired', '1','I'
+EXEC pr_barang_retur 'RT0019', 'B0008', '5', 'rusak', '0','I'
+EXEC pr_barang_retur 'RT0019', 'B0011', '2', 'expired', '1','I'
+EXEC pr_barang_retur 'RT0019', 'B0013', '1', 'rusak', '0','I'
+
+EXEC pr_detail_retur 'RT0020', '2023-07-02','FK0167','I'
+EXEC pr_barang_retur 'RT0020', 'B0018', '1', 'salah barang', '1','I'
+EXEC pr_barang_retur 'RT0020', 'B0019', '1', 'expired', '1','I'
+EXEC pr_barang_retur 'RT0020', 'B0020', '3', 'rusak', '0','I'
+EXEC pr_barang_retur 'RT0020', 'B0021', '2', 'expired', '1','I'
+EXEC pr_barang_retur 'RT0020', 'B0022', '1', 'rusak', '0','I'
+
+EXEC pr_detail_retur 'RT0021', '2023-07-02','FK0168','I'
+EXEC pr_barang_retur 'RT0021', 'B0024', '1', 'salah barang', '1','I'
+EXEC pr_barang_retur 'RT0021', 'B0025', '2', 'expired', '1','I'
+
+
+--update
+EXEC pr_data_pelanggan 'P0001', 'Adrian Chen' , '08125234777', 'Jln.Rajawali no 11', 'Bandung' , 'U'
+EXEC pr_data_pelanggan 'P0002', 'Andre Kurniawan' , '081135647821', 'Jln.Jln. Rahayu Raya', 'Papua' , 'U'
+EXEC pr_data_pelanggan 'P0003', 'Christian Richie Wijaya' , '087800037118', 'Jln.H Faqih Usman 34 ', 'Balikpapan' , 'U'
+EXEC pr_data_pelanggan 'P0004', 'Hansen' , '081234561234', 'Jln.Belimbing Manis', 'Padang' , 'U'
+
+EXEC pr_kasir 'K0001', 'Steven Tribethran', '085728996766', 'Jln. Perunas no 80', 'Jakarta' , 'L', 'U'
+EXEC pr_kasir 'K0002', 'Rio Ferdynand', '08132789288', 'gang Ribut', 'Binjai' , 'L', 'U'
+EXEC pr_kasir 'K0003', 'Neilsen Nicholas Komah', '181356781243', 'Jln. Atmo', 'Palembang' , 'L', 'U'
+EXEC pr_kasir 'K0004', 'Rusdi Bayu Putra', '188912345673', 'Jln. Bahagia', 'Pandeglang' , 'L', 'U'
+
+--delete
+EXEC pr_barang_retur 'RT0020', 'B0018', '', '','1','D'
+EXEC pr_barang_retur 'RT0020', 'B0019', '', '', '1','D'
+EXEC pr_barang_retur 'RT0020', 'B0020', '', '', '0','D'
+EXEC pr_barang_retur 'RT0020', 'B0021', '', '', '1','D'
+EXEC pr_barang_retur 'RT0020', 'B0022', '', '', '0','D'
+EXEC pr_barang_retur 'RT0019', 'B0008', '', '', '0','D'
+EXEC pr_barang_retur 'RT0019', 'B0011', '', '', '1','D'
+EXEC pr_barang_retur 'RT0019', 'B0013', '', '', '0','D'
+
+--select
+EXEC pr_kasir 'K0003', '', '', '', '','','S'
+EXEC pr_kasir 'K0002', '', '', '', '','','S'
+EXEC pr_data_pelanggan 'P0003', '', '', '', '','S'
+EXEC pr_data_pelanggan 'P0004', '', '', '', '','S'
+EXEC pr_salesman'S0003', '', '', '', '','','S'
+GO
 
 
 
@@ -1621,4 +1721,111 @@ GO
 BACKUP DATABASE dbA1
 TO DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\dbA1.bak'
 WITH NOFORMAT, NOINIT, NAME = N'dbA1-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10
+GO
+
+
+
+
+
+-- Soal
+-- Buatkan view untuk menampilkan subtotal retur barang dengan kode barang B0007 dan Nomor Retur RT0001
+CREATE VIEW vw_subtotal_retur
+AS
+    SELECT BR.kodeBarang, DR.noRetur, SUM(BR.banyakBarang * B.harga) AS subtotal
+    FROM tbBarangRetur AS BR
+    JOIN tbDetailRetur AS DR ON BR.noRetur = DR.noRetur
+	JOIN tbBarang AS B ON BR.kodeBarang = B.kode
+    WHERE BR.kodeBarang = 'B0007' AND DR.noRetur = 'RT0001'
+    GROUP BY BR.kodeBarang, DR.noRetur
+GO
+
+-- Buatkan view untuk menampilkan total retur barang dengan Nomor Retur RT0001
+CREATE VIEW vwTotalRetur AS
+    SELECT DR.noRetur, SUM(BR.banyakBarang * B.harga) AS totalRetur
+    FROM tbBarangRetur AS BR
+    JOIN tbDetailRetur AS DR ON BR.noRetur = DR.noRetur
+	JOIN tbBarang AS B ON BR.kodeBarang = B.kode
+    WHERE DR.noRetur = 'RT0001'
+    GROUP BY DR.noRetur
+GO
+
+-- Buatkan query untuk menampilkan transaksi faktur senilai lebih dari 100 juta
+SELECT DF.noFaktur, SUM(B.harga * TB.banyakBarang) AS total_transaksi
+FROM tbDetailFaktur AS DF
+JOIN tbTransaksiBarang AS TB ON DF.noFaktur = TB.noFaktur
+JOIN tbBarang AS B ON TB.kodeBarang = B.kode
+GROUP BY DF.noFaktur
+HAVING SUM(B.harga * TB.banyakBarang) >= 100000000
+GO
+
+-- Buatkan query untuk menampilkan pelanggan dari kota jakarta
+SELECT *
+FROM tbPelanggan
+WHERE kota = 'Jakarta'
+GO
+
+-- Buatkan query untuk menampilkan data salesamn yang berjenis kelamin laki laki
+SELECT *
+FROM tbSalesman
+WHERE JK = 'L'
+GO
+
+-- Buatkan query untuk menampilkan nama pelanggan secara ascending
+SELECT *
+FROM tbPelanggan
+ORDER BY nama ASC
+GO
+
+-- Buatkan query untuk menampilkan data barang secara ascending
+SELECT *
+FROM tbBarang
+ORDER BY nama ASC
+GO
+
+-- Tampilkan data barang yang diretur dengan alasan rusak
+SELECT *
+FROM tbBarangRetur
+WHERE alasanRetur = 'rusak'
+GO
+
+-- Tampilkan semua data salesman yang memiliki nama berakhiran en
+SELECT *
+FROM tbSalesman
+WHERE nama LIKE '%en'
+GO
+
+-- Tampilkan semua data barang yang dibeli pelanggan yang berasal dari palembang
+SELECT P.nama, B.*
+FROM tbBarang AS B
+JOIN tbTransaksiBarang AS TB ON B.kode = TB.kodeBarang
+JOIN tbDetailFaktur AS DF ON TB.noFaktur = DF.noFaktur
+JOIN tbPelanggan AS P ON DF.kodePelanggan = P.kode
+WHERE P.kota = 'Palembang'
+GO
+
+-- Tampilkan barang yang diretur dengan jumlah diatas 5 barang
+SELECT *
+FROM tbBarangRetur
+WHERE banyakBarang > 5
+GO
+
+-- Tampilkan nama barang yang mengandung huruf an
+SELECT *
+FROM tbBarang
+WHERE nama LIKE '%an%'
+GO
+
+-- Tampilkan data barang yang paling laris dijual
+SELECT TB.kodeBarang, B.nama, SUM(TB.banyakBarang) AS total_penjualan
+FROM tbTransaksiBarang AS TB, tbBarang AS B
+WHERE TB.kodeBarang = B.kode
+GROUP BY TB.kodeBarang, B.nama
+ORDER BY total_penjualan DESC
+GO
+
+-- Tampilkan penjualan tertinggi dari suatu barang dalam satu transaksi
+SELECT tb.kodeBarang, MAX(tb.banyakBarang) AS totalPenjualan
+FROM tbTransaksiBarang AS tb
+GROUP BY tb.kodeBarang
+ORDER BY totalPenjualan DESC
 GO
