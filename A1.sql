@@ -1315,7 +1315,7 @@ AS
 		BEGIN
 			PRINT '(Insert data)'
 
-			INSERT INTO tbTransaksiBarang(idTransaksi, noFaktur, kodeBarang, banyakBarang) VALUES(@id, @noFaktur,@kodeBarang, @banyakBarang)
+			INSERT INTO tbTransaksiBarang(idTransaksi, noFaktur, kodeBarang, banyakBarang) VALUES(@noFaktur,@kodeBarang, @banyakBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
@@ -1332,7 +1332,7 @@ AS
 			PRINT '(Delete data)'
 
 			DELETE FROM tbTransaksiBarang
-			WHERE idTransaksi = @id
+			WHERE noFaktur = @noFaktur AND kodeBarang = @kodeBarang
 		END
 	ELSE IF @Petunjuk = 'S'
 		BEGIN
@@ -1393,7 +1393,7 @@ AS
 		BEGIN
 			PRINT '(Insert data)'
 
-			INSERT INTO tbBarangRetur(idRetur, noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@id, @noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
+			INSERT INTO tbBarangRetur(idRetur, noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
@@ -1405,7 +1405,7 @@ AS
 				banyakBarang = @banyakBarang,
 				alasanRetur = @alasanRetur,
 				kondisiBarang = @kondisiBarang
-			WHERE noRetur = @noRetur
+			WHERE noRetur = @noRetur AND kodeBarang = @kodeBarang
 		END
 	ELSE IF @Petunjuk = 'D'
 		BEGIN
