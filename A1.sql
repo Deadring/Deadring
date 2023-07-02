@@ -1325,7 +1325,7 @@ AS
 			SET noFaktur = @noFaktur,
 				kodeBarang = @kodeBarang,
 				banyakBarang = @banyakBarang
-			WHERE idTransaksi = @id
+			WHERE noFaktur = @noFaktur AND kodeBarang = @kodeBarang
 		END
 	ELSE IF @Petunjuk = 'D'
 		BEGIN
@@ -1411,7 +1411,7 @@ AS
 		BEGIN
 			PRINT '(Delete data):' + ' Penghapusan Barang Retur: ' + @id
 			DELETE FROM tbBarangRetur
-			WHERE idRetur = @id
+			WHERE noRetur = @noRetur AND kodeBarang = @kodeBarang
 		END
 	ELSE IF @Petunjuk = 'S'
 		BEGIN
