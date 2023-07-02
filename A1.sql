@@ -1309,7 +1309,7 @@ AS
 GO
 
 
-CREATE PROCEDURE pr_transaksi_barang(@id CHAR(2), @noFaktur CHAR(6), @kodeBarang CHAR(5) , @banyakBarang CHAR(4), @Petunjuk CHAR(1))
+CREATE PROCEDURE pr_transaksi_barang(@noFaktur CHAR(6), @kodeBarang CHAR(5) , @banyakBarang CHAR(4), @Petunjuk CHAR(1))
 AS
 	IF @Petunjuk = 'I'
 		BEGIN
@@ -1339,7 +1339,7 @@ AS
 			PRINT '(Select data)'
 
 			SELECT * FROM tbTransaksiBarang
-			WHERE idTransaksi = @id
+			WHERE noFaktur = @noFaktur AND kodeBarang = @kodeBarang
 		END
 	ELSE
 		BEGIN
@@ -1387,7 +1387,7 @@ AS
 GO
 
 
-CREATE PROCEDURE pr_barang_retur(@id CHAR(3),@noRetur CHAR(6), @kodeBarang CHAR(6), @banyakBarang CHAR(3), @alasanRetur VARCHAR(20), @kondisiBarang CHAR(1), @Petunjuk CHAR(1))
+CREATE PROCEDURE pr_barang_retur(@noRetur CHAR(6), @kodeBarang CHAR(6), @banyakBarang CHAR(3), @alasanRetur VARCHAR(20), @kondisiBarang CHAR(1), @Petunjuk CHAR(1))
 AS
 	IF @Petunjuk = 'I'
 		BEGIN
@@ -1418,7 +1418,7 @@ AS
 			PRINT '(Select data)'
 
 			SELECT * FROM tbBarangRetur
-			WHERE idRetur = @id
+			WHERE noRetur = @noRetur AND kodeBarang = @kodeBarang
 		END
 	ELSE
 		BEGIN
