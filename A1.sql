@@ -1313,13 +1313,13 @@ CREATE PROCEDURE pr_transaksi_barang(@noFaktur CHAR(6), @kodeBarang CHAR(5) , @b
 AS
 	IF @Petunjuk = 'I'
 		BEGIN
-			PRINT '(Insert data):' + ' transaksi dengan id transaksi: ' + @id
+			PRINT '(Insert data)'
 
 			INSERT INTO tbTransaksiBarang(idTransaksi, noFaktur, kodeBarang, banyakBarang) VALUES(@id, @noFaktur,@kodeBarang, @banyakBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
-			PRINT '(Update data):' + ' Transaksi dengan id transaksi : ' + @id + ' telah dihapus dari tabel'
+			PRINT '(Update data):' + ' Transaksi telah dihapus dari tabel'
 
 			UPDATE tbTransaksiBarang
 			SET noFaktur = @noFaktur,
@@ -1329,7 +1329,7 @@ AS
 		END
 	ELSE IF @Petunjuk = 'D'
 		BEGIN
-			PRINT '(Delete data):' + ' Penghapusan Transaksi barang : ' + @id
+			PRINT '(Delete data)'
 
 			DELETE FROM tbTransaksiBarang
 			WHERE idTransaksi = @id
@@ -1391,13 +1391,13 @@ CREATE PROCEDURE pr_barang_retur(@noRetur CHAR(6), @kodeBarang CHAR(6), @banyakB
 AS
 	IF @Petunjuk = 'I'
 		BEGIN
-			PRINT '(Insert data):' + ' transaksi dengan id Barang Retur: ' + @id
+			PRINT '(Insert data)'
 
 			INSERT INTO tbBarangRetur(idRetur, noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@id, @noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
-			PRINT '(Update data):' + ' Barang Retur dengan id: ' + @id + ' telah dihapus dari tabel'
+			PRINT '(Update data):' + ' Barang Retur telah dihapus dari tabel'
 
 			UPDATE tbBarangRetur
 			SET noRetur = @noRetur,
@@ -1409,7 +1409,7 @@ AS
 		END
 	ELSE IF @Petunjuk = 'D'
 		BEGIN
-			PRINT '(Delete data):' + ' Penghapusan Barang Retur: ' + @id
+			PRINT '(Delete data)'
 			DELETE FROM tbBarangRetur
 			WHERE noRetur = @noRetur AND kodeBarang = @kodeBarang
 		END
