@@ -1315,7 +1315,7 @@ AS
 		BEGIN
 			PRINT '(Insert data)'
 
-			INSERT INTO tbTransaksiBarang(idTransaksi, noFaktur, kodeBarang, banyakBarang) VALUES(@noFaktur,@kodeBarang, @banyakBarang)
+			INSERT INTO tbTransaksiBarang(noFaktur, kodeBarang, banyakBarang) VALUES(@noFaktur,@kodeBarang, @banyakBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
@@ -1393,7 +1393,7 @@ AS
 		BEGIN
 			PRINT '(Insert data)'
 
-			INSERT INTO tbBarangRetur(idRetur, noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
+			INSERT INTO tbBarangRetur(noRetur, kodeBarang, banyakBarang, alasanRetur, kondisiBarang) VALUES(@noRetur, @kodeBarang, @banyakBarang, @alasanRetur, @kondisiBarang)
 		END
 	ELSE IF @Petunjuk = 'U'
 		BEGIN
