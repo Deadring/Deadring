@@ -1735,19 +1735,23 @@ AS
     FROM tbBarangRetur AS BR
     JOIN tbDetailRetur AS DR ON BR.noRetur = DR.noRetur
 	JOIN tbBarang AS B ON BR.kodeBarang = B.kode
-    WHERE BR.kodeBarang = 'B0007' AND DR.noRetur = 'RT0001'
     GROUP BY BR.kodeBarang, DR.noRetur
 GO
 
+SELECT * FROM vw_subtotal_retur
+WHERE kodeBarang = 'B0007' AND noRetur = 'RT0001'
+
 -- Buatkan view untuk menampilkan total retur barang dengan Nomor Retur RT0001
-CREATE VIEW vwTotalRetur AS
+CREATE VIEW vw_total_retur AS
     SELECT DR.noRetur, SUM(BR.banyakBarang * B.harga) AS totalRetur
     FROM tbBarangRetur AS BR
     JOIN tbDetailRetur AS DR ON BR.noRetur = DR.noRetur
 	JOIN tbBarang AS B ON BR.kodeBarang = B.kode
-    WHERE DR.noRetur = 'RT0001'
     GROUP BY DR.noRetur
 GO
+
+SELECT * FROM vw_total_retur
+WHERE noRetur = 'RT0001'
 
 -- Buatkan query untuk menampilkan transaksi faktur senilai lebih dari 100 juta
 SELECT DF.noFaktur, SUM(B.harga * TB.banyakBarang) AS total_transaksi
